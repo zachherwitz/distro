@@ -37,11 +37,14 @@ app.get('/', (req, res)=>{
 	res.json('this is the distro api!')
 });
 
+const userController = require('./controllers/usersController.js');
+app.use('/users', userController);
+
 //zach~//~zach~//~zach~//~zach~//~zach~//~zach~//~zach~//~zach~//~zach~//~zach
 //                                DATABASE                                  //
 //zach~//~zach~//~zach~//~zach~//~zach~//~zach~//~zach~//~zach~//~zach~//~zach
 
-mongoose.connect('mongodb://localhost:27017/meancrud', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb://localhost:27017/distro-api', { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.connection.once('open', () => {
     console.log('connected to mongod...');
 });
