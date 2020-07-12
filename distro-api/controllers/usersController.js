@@ -44,62 +44,62 @@ router.get('/', (req, res) => {
 })
 
 // SEED //
-// router.get('/seed', (req, res) => {
-//   User.create([
-//     {
-//       callsheet: {
-//         callTime: "1130",
-//         location: "Starbucks near Lafayette Park"
-//       },
-//       department: "Art",
-//       distros: ["Night Notes", "Produciton Reports", "Director Notes"],
-//       email: "juniper@juniper.com",
-//       name: "Juniper Jones",
-//       phone: "3033034499",
-//       projectId: "1",
-//       role: "user"
-//     },
-//     {
-//       callsheet: {
-//         callTime: "1030",
-//         location: "Starbucks near Union Park"
-//       },
-//       department: "Art",
-//       distros: ["Night Notes", "Produciton Reports", "Director Notes"],
-//       email: "aggie@aggie.com",
-//       name: "Aggie Herwitz",
-//       phone: "3033034499",
-//       projectId: "1",
-//       role: "user"
-//     },
-//     {
-//       callsheet: {
-//         callTime: "1130",
-//         location: "Starbucks near Lafayette Park"
-//       },
-//       department: "Production",
-//       distros: ["Tech Scout Itinerary", "Night Notes", "Director Notes"],
-//       email: "juniper@juniper.com",
-//       name: "Griffin Herwitz",
-//       phone: "3033034499",
-//       projectId: "1",
-//       role: "user"
-//     },
-//     {
-//       callsheet: {
-//         callTime: "1130",
-//         location: "Starbucks near Union Park"
-//       },
-//       department: "Locations",
-//       distros: ["Tech Scout Itinerary", "Production Reports", "Director Notes"],
-//       email: "juniper@juniper.com",
-//       name: "Zach Herwitz",
-//       phone: "3013679821",
-//       projectId: "1",
-//       role: "user"
-//     }
-//   ])
-// })
+router.get('/seed', (req, res) => {
+  User.create([
+    {
+      callsheet: {
+        callTime: "",
+        location: ""
+      },
+      department: "Art",
+      distros: ["Night Notes", "Produciton Reports", "Director Notes"],
+      email: "juniper@juniper.com",
+      name: "Juniper Jones",
+      phone: "3033034499",
+      projectId: "1",
+      role: "user"
+    },
+    {
+      callsheet: {
+        callTime: "",
+        location: ""
+      },
+      department: "Art",
+      distros: ["Night Notes", "Produciton Reports", "Director Notes"],
+      email: "aggie@aggie.com",
+      name: "Aggie Herwitz",
+      phone: "3033034499",
+      projectId: "1",
+      role: "user"
+    },
+    {
+      callsheet: {
+        callTime: "",
+        location: ""
+      },
+      department: "Production",
+      distros: ["Tech Scout Itinerary", "Night Notes", "Director Notes"],
+      email: "juniper@juniper.com",
+      name: "Griffin Herwitz",
+      phone: "3033034499",
+      projectId: "1",
+      role: "user"
+    },
+    {
+      callsheet: {
+        callTime: "",
+        location: ""
+      },
+      department: "Locations",
+      distros: ["Tech Scout Itinerary", "Production Reports", "Director Notes"],
+      email: "juniper@juniper.com",
+      name: "Zach Herwitz",
+      phone: "3013679821",
+      projectId: "1",
+      role: "user"
+    }
+  ])
+})
 
 
 module.exports = router;

@@ -41,6 +41,7 @@ class App extends React.Component {
       generalCallTime: callsheet.generalCallTime,
       generalLocation: callsheet.generalLocation,
       nearestHospital: callsheet.nearestHospital,
+      allCalled: callsheet.allCalled
     }).then(
       (response) => {
         this.setState({callsheet:response.data.createdCallsheet})

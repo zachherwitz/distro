@@ -3,9 +3,7 @@ const mongoose = require('mongoose');
 const userSchema = mongoose.Schema({
   callsheet: {
     callTime: String,
-    genCallTime: String,
     location: String,
-    genLocation: String
   },
   department: String,
   distros: [String],

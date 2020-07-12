@@ -6,6 +6,8 @@ class CallsheetCreate extends React.Component {
   }
 
   composeCallsheet = () => {
+    let allCalledArray = this.state.allCalled.split(',')
+
     let callsheetObject = {
       date: this.state.date,
       episode: this.state.episode,
@@ -13,7 +15,8 @@ class CallsheetCreate extends React.Component {
       scriptDraft: this.state.scriptDraft,
       generalCallTime: this.state.crewCallTime,
       generalLocation: this.state.crewLocation,
-      nearestHospital: this.state.hospital
+      nearestHospital: this.state.hospital,
+      allCalled: allCalledArray
     }
     this.props.createCallsheet(callsheetObject);
   }
@@ -49,6 +52,10 @@ class CallsheetCreate extends React.Component {
         // console.log('changing hospital');
         this.setState({[attributeId]:e.target.value})
         break;
+      case 'allCalled':
+        // console.log('changin allCalled')
+        this.setState({[attributeId]:e.target.value})
+        break;
     }
   }
 
@@ -56,46 +63,52 @@ class CallsheetCreate extends React.Component {
     return <div>
       <form onSubmit={this.composeCallsheet}>
         <input
-          onKeyDown={this.newInput}
+          onKeyUp={this.newInput}
           id="date"
           type="text"
           placeholder="date"/>
         <br/>
         <input
-          onKeyDown={this.newInput}
+          onKeyUp={this.newInput}
           id="episode"
           type="text"
           placeholder="episode"/>
         <br/>
         <input
-          onKeyDown={this.newInput}
+          onKeyUp={this.newInput}
           id="day"
           type="text"
           placeholder="day"/>
         <br/>
         <input
-          onKeyDown={this.newInput}
+          onKeyUp={this.newInput}
           id="scriptDraft"
           type="text"
           placeholder="script draft"/>
         <br/>
         <input
-          onKeyDown={this.newInput}
+          onKeyUp={this.newInput}
           id="crewCallTime"
           type="text"
           placeholder="crew call time"/>
         <br/>
         <input
-          onKeyDown={this.newInput}
+          onKeyUp={this.newInput}
           id="crewLocation"
           type="text"
           placeholder="crew location"/>
         <br/>
         <input
-          onKeyDown={this.newInput}
+          onKeyUp={this.newInput}
           id="hospital"
           type="text"
           placeholder="nearest hopsital"/>
+        <br/>
+        <input
+          onKeyUp={this.newInput}
+          id="allCalled"
+          type="text"
+          placeholder="allCalled"/>
         <br/>
         <input type="submit" value="Submit Callsheet"/>
       </form>
