@@ -1,5 +1,6 @@
 import React from 'react';
 import UserTestForm from './components/UserTestForm';
+import UserDisplay from './components/UserDisplay'
 import axios from 'axios';
 
 // TEST <UserTestForm /> to test the users
@@ -26,6 +27,7 @@ class App extends React.Component {
   }
 
   render = () => {
+    // DESTRUCTURING :: displayUser now equals this.state.displayUser //
     const {displayUser} = this.state;
     return <div>
       <ul> Users:
@@ -36,18 +38,7 @@ class App extends React.Component {
       <br/><br/>
       <br/><br/>
       <br/><br/>
-      {displayUser ?
-        <div>
-          <h1>NAME: {displayUser.name}</h1>
-          <h2>CALL TIME: {displayUser.callsheet.callTime} </h2>
-          <h2>LOCATION: {displayUser.callsheet.location}</h2>
-          <h3>DEPARTMENT: {displayUser.email}</h3>
-          <h4>EMAIL: {displayUser.email}</h4>
-          <h4>PHONE: {displayUser.email}</h4>
-          <h6>id: {displayUser._id}</h6>
-        </div>
-        : null
-      }
+      {displayUser ? <UserDisplay user={displayUser} /> : null}
     </div>
   }
 }
