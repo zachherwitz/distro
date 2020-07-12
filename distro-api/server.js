@@ -37,8 +37,11 @@ app.get('/', (req, res)=>{
 	res.json('this is the distro api!')
 });
 
-const userController = require('./controllers/usersController.js');
-app.use('/users', userController);
+const usersController = require('./controllers/usersController.js');
+app.use('/users', usersController);
+
+const callsheetController = require('./controllers/callsheetController.js');
+app.use('/callsheet', callsheetController);
 
 //zach~//~zach~//~zach~//~zach~//~zach~//~zach~//~zach~//~zach~//~zach~//~zach
 //                                DATABASE                                  //
