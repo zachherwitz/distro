@@ -6,6 +6,16 @@ const User = require('../models/users.js')
 // CREATE //
 router.post('/', (req, res) => {
   Callsheet.create(req.body, (err, createdCallsheet) => {
+    // search for all users on the distribution
+    createdCallsheet.allCalled.map((user) => {
+      User.findOneAndUpdate({name:user}, {callsheet:{
+        callTime: createdCallsheet.generalCallTime,
+        location: createdCallsheet.generalLocation
+      }}, {new:true}, (err, updatedUser) => {
+        console.log(updatedUser);
+      })
+    })
+    // search for individual time/location changes and update
     createdCallsheet.singles.map((singles) => {
       User.findOneAndUpdate({name:singles.name}, {callsheet:{
         callTime: singles.callTime,
