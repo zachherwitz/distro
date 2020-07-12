@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const userSchema = mongoose.Schema({
   callsheet: {
-    callTime: Number,
+    callTime: String,
     location: String
   },
   department: String,
