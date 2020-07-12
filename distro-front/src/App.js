@@ -1,16 +1,28 @@
 import React from 'react';
-import UserTestForm from './components/UserTestForm';
-import UserDisplay from './components/UserDisplay'
+import CallsheetCreate from './components/CallsheetCreate';
+import UserDisplay from './components/UserDisplay';
+
 import axios from 'axios';
+
 
 // TEST <UserTestForm /> to test the users
 
 class App extends React.Component {
   state = {
     users: [],
-    displayUser: ''
+    displayUser: '',
+    route: ''
   }
 
+  // Makeshift Route Changing until I can figure out router
+  changeRoute = (e) => {
+    let updatedRoute = e.target.getAttribute('route');
+    this.setState({
+      route: updatedRoute
+    })
+  }
+
+  // Gets and stores all the data as soon as the app is mounted
   componentDidMount = () => {
     axios.get('http://localhost:3000/users').then((response) => {
       this.setState({
@@ -19,6 +31,7 @@ class App extends React.Component {
     })
   }
 
+  // Display profile information of user on click
   displayUserProfile = (e) => {
     let userToDisplay = this.state.users[e.target.id]
     this.setState({
@@ -28,18 +41,25 @@ class App extends React.Component {
 
   render = () => {
     // DESTRUCTURING :: displayUser now equals this.state.displayUser //
-    const {displayUser} = this.state;
-    return <div>
-      <ul> Users:
-        {this.state.users.map((user, index) => {
-          return <li key={index} id={index} onClick={this.displayUserProfile}>{user.name}</li>
-        })}
-      </ul>
-      <br/><br/>
-      <br/><br/>
-      <br/><br/>
-      {displayUser ? <UserDisplay user={displayUser} /> : null}
-    </div>
+    return (
+      <div>
+        <nav style={{display: 'flex', justifyContent: 'space-around', paddingTop: '20px'}}>
+          <a
+            onClick={this.changeRoute}
+            route="allUsers"
+            href="#">All Users View</a>
+          <a
+            onClick={this.changeRoute}
+            route="createCallsheet"
+            href="#">Call Sheet View</a>
+        </nav>
+          {this.state.route === "allUsers" ? <UserDisplay
+            allUsers={this.state.users}
+            displayUser={this.state.displayUser}
+            displayUserProfile={this.displayUserProfile}/> : null}
+          {this.state.route === "createCallsheet" ? <CallsheetCreate/> : null}
+      </div>
+    )
   }
 }
 
