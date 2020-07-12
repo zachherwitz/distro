@@ -31,6 +31,22 @@ class App extends React.Component {
     })
   }
 
+  // Create call sheet based on call sheet object in state
+  createCallsheet = (callsheet) => {
+    axios.post('http://localhost:3000/callsheet', {
+      date: callsheet.date,
+      episode: callsheet.episode,
+      day: callsheet.day,
+      scriptDraft: callsheet.scriptDraft,
+      generalCallTime: callsheet.generalCallTime,
+      generalLocation: callsheet.generalLocation,
+      nearestHospital: callsheet.nearestHospital,
+    }).then(
+      (response) => {
+        this.setState({callsheet:response.data.createdCallsheet})
+    })
+  }
+
   // Display profile information of user on click
   displayUserProfile = (e) => {
     let userToDisplay = this.state.users[e.target.id]
@@ -38,6 +54,7 @@ class App extends React.Component {
       displayUser:userToDisplay
     })
   }
+
 
   render = () => {
     // DESTRUCTURING :: displayUser now equals this.state.displayUser //
@@ -57,7 +74,8 @@ class App extends React.Component {
             allUsers={this.state.users}
             displayUser={this.state.displayUser}
             displayUserProfile={this.displayUserProfile}/> : null}
-          {this.state.route === "createCallsheet" ? <CallsheetCreate/> : null}
+          {this.state.route === "createCallsheet" ? <CallsheetCreate
+            createCallsheet={this.createCallsheet}/> : null}
       </div>
     )
   }
