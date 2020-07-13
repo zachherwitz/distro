@@ -1,8 +1,10 @@
 import React from 'react';
+import NewUserForm from  './NewUserForm';
 
 class UserDisplay extends React.Component {
   render = () => {
     return <div>
+      <NewUserForm refreshUserList={this.props.refreshUserList}/>
       <h1>THIS IS MY VIEW ALL USERS DIV</h1>
       <ul> Users:
         {this.props.allUsers.map((user, index) => {
