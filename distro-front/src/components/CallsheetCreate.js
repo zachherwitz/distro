@@ -25,36 +25,30 @@ class CallsheetCreate extends React.Component {
     const attributeId = e.target.getAttribute('id');
     switch (attributeId) {
       case 'date':
-        // console.log('changing date');
         this.setState({[attributeId]:e.target.value})
         break;
       case 'episode':
-        // console.log('changing episode');
         this.setState({[attributeId]:e.target.value})
         break;
       case 'day':
-        // console.log('changing day');
         this.setState({[attributeId]:e.target.value})
         break;
       case 'scriptDraft':
-        // console.log('changing script draft');
         this.setState({[attributeId]:e.target.value})
         break;
       case 'crewCallTime':
-        // console.log('changing crew call time');
         this.setState({[attributeId]:e.target.value})
         break;
       case 'crewLocation':
-        // console.log('changing crew location');
         this.setState({[attributeId]:e.target.value})
         break;
       case 'hospital':
-        // console.log('changing hospital');
         this.setState({[attributeId]:e.target.value})
         break;
       case 'allCalled':
-        // console.log('changin allCalled')
         this.setState({[attributeId]:e.target.value})
+        break;
+      default:
         break;
     }
   }
